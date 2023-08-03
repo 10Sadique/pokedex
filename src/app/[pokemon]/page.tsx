@@ -1,32 +1,33 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
 import { inter } from '@/app/layout';
 import { ChevronLeft } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 import { cn } from '@/lib/utils';
-import { buttonVariants } from '@/components/ui/button';
 import usePokemon from '@/hooks/usePokemon';
+import { Button, buttonVariants } from '@/components/ui/button';
 
 export default function PokemonDetailsPage({
   params,
 }: {
   params: { pokemon: string };
 }) {
+  const router = useRouter();
   const pokemonName = params.pokemon;
 
   const { pokemon, pokemonLoading } = usePokemon(pokemonName);
 
   return (
-    <div>
-      <Link
-        href={'/'}
+    <div className="container">
+      <Button
+        onClick={() => router.back()}
         className={cn(inter.className, 'flex items-center', buttonVariants())}
       >
         <ChevronLeft className={cn('w-4 h-4 mr-2')} />
         Back
-      </Link>
+      </Button>
 
       <div
         className={cn(
