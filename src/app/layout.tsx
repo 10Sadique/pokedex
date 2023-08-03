@@ -23,7 +23,7 @@ export default function RootLayout({
       <body
         className={cn(
           anton.className,
-          'text-black bg-gradient-to-tr from-orange-400 to-orange-600 flex flex-col justify-between min-h-screen p-24'
+          'text-black bg-gradient-to-tr from-orange-300 via-orange-500 to-orange-700 flex flex-col justify-between min-h-screen p-24'
         )}
       >
         {children}
